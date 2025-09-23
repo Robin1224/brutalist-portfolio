@@ -17,7 +17,6 @@
 	"dependencies": {
 		"@lostisworld/svelte-interactive-cursor": "^0.3.2",
 		"@sveltejs/adapter-vercel": "^5.5.2",
-		"@vercel/analytics": "^1.5.0",
 		"animejs": "^4.0.2"
 	}
 }
