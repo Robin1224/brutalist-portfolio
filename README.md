@@ -27,7 +27,7 @@
 
 ![Page screenshot](https://github.com/user-attachments/assets/b343cc2b-a8eb-4098-b992-feaff6580a35)
 
-A work-in-progress learning journal/digital garden website made as an assignment for my University course. Eventually - once I have more time to work on it - this will display a sort of digital garden-type collection of notes and writings. For now it only includes the functionality to create responsive and modular Bauhaus-inspired tiles, along with some basic text positioning. The design probably does not truly follow the rules of the Bauhaus art movement as I have done no research into this, it is just inspired by it.
+A work-in-progress portfolio site. Originally a Bauhaus-inspired digital garden created as an assignment for a university course, it eventually grew into a brutalist, abstract portfolio project with a design centered around raw, true randomness.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
