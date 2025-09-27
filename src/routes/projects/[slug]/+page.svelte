@@ -8,6 +8,7 @@
   let item = data.items[0]
 
   console.log(item.description.json.content[0].content[0].value);
+  console.log(item);
 
   let windowRef;
   let backRef;
@@ -55,8 +56,17 @@
   <img src={item.coverImage.url} alt={item.coverImage.description} />
 </Paragraph>
 
+<Paragraph bind:ref={refs[3]} --bg="#ffff00">
+  {#if item.url}
+    <a href={item.url}>Live URL</a>
+  {/if}
+  {#if item.githubUrl}
+    <a href={item.githubUrl}>Github</a>
+  {/if}
+</Paragraph>
+
 {#each item.description.json.content as paragraph, i}
-  <Paragraph bind:ref={refs[i + 3]} --bg={colours[i % colours.length]}>
+  <Paragraph bind:ref={refs[i + 4]} --bg={colours[i % colours.length]}>
     <p>{paragraph.content[0].value}</p>
   </Paragraph>
 {/each}

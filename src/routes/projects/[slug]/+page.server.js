@@ -19,6 +19,8 @@ export async function load({ params }) {
       description {
         json
       }
+      url
+      githubUrl
       slug
     }
   }
