@@ -120,7 +120,6 @@
   .bio-content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
 
   /* .fallback a,
