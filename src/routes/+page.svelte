@@ -37,10 +37,23 @@
 <div class="fallback">
   <h1>robin van der heijden</h1>
   <h2>creative frontend developer</h2>
+
+  <br />
+
+  <a href="https://github.com/Robin1224">github</a>
+  <a href="https://www.linkedin.com/in/robin-van-der-heijden-545a21236/"
+    >linkedin</a
+  >
+
+  <br />
+  <br />
+
   <a href="/projects">projects</a>
   <a href="/blog">blog</a>
 
-  <p><br>(PS: All boxes are draggable)</p>
+  <br />
+
+  <p>(PS: All boxes are draggable)</p>
 </div>
 
 <DraggableBox
@@ -51,7 +64,13 @@
   --height={`${Math.random() * 60 + 5}vh`}
   --align="start"
 >
-  <h1>robin van der heijden</h1>
+  <div class="bio-content">
+    <h1>robin van der heijden</h1>
+    <a href="https://github.com/Robin1224">github</a>
+    <a href="https://www.linkedin.com/in/robin-van-der-heijden-545a21236/"
+      >linkedin</a
+    >
+  </div>
 </DraggableBox>
 
 <DraggableBox
@@ -96,6 +115,12 @@
     mix-blend-mode: difference;
     contain: none;
     background-color: #000000;
+  }
+
+  .bio-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   /* .fallback a,
