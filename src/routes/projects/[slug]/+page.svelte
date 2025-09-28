@@ -7,7 +7,7 @@
   
   let { data } = $props();
   let item = data.items[0];
-
+  
   let readingModeActive = $derived(getContext("readingModeActive"));
 
   let windowRef;
@@ -56,11 +56,17 @@
   <img src={item.coverImage.url} alt={item.coverImage.description} />
 </Paragraph>
 
+<Paragraph bind:ref={refs[3]} --bg="#ffff00">
+  {#if item.url}
+    <a href={item.url}>Live URL</a>
+  {/if}
+  {#if item.githubUrl}
+    <a href={item.githubUrl}>Github</a>
+  {/if}
+</Paragraph>
+
 {#each item.description.json.content as paragraph, i}
-  <Paragraph
-    bind:ref={refs[i + 3]}
-    --bg={Math.random() < 0.5 ? colours[0] : colours[1]}
-  >
+  <Paragraph bind:ref={refs[i + 4]} --bg={colours[i % colours.length]}>
     <p>{paragraph.content[0].value}</p>
   </Paragraph>
 {/each}

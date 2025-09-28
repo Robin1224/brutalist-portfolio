@@ -37,54 +37,74 @@
 <div class="fallback">
   <h1>robin van der heijden</h1>
   <h2>creative frontend developer</h2>
+
+  <br />
+
+  <a href="https://github.com/Robin1224">github</a>
+  <a href="https://www.linkedin.com/in/robin-van-der-heijden-545a21236/"
+    >linkedin</a
+  >
+
+  <br />
+  <br />
+
   <a href="/projects">projects</a>
   <a href="/blog">blog</a>
 
-  <p><br />(PS: All boxes are draggable)</p>
+  <br />
+
+  <p>(PS: All boxes are draggable)</p>
 </div>
-  <DraggableBox
-    bind:ref={headerRef}
-    element="header"
-    --color="#0000ff"
-    --width={`${Math.random() * 60 + 5}vw`}
-    --height={`${Math.random() * 60 + 5}vh`}
-    --align="start"
-  >
+
+<DraggableBox
+  bind:ref={headerRef}
+  element="header"
+  --color="#0000ff"
+  --width={`${Math.random() * 60 + 5}vw`}
+  --height={`${Math.random() * 60 + 5}vh`}
+  --align="start"
+>
+  <div class="bio-content">
     <h1>robin van der heijden</h1>
-  </DraggableBox>
+    <a href="https://github.com/Robin1224">github</a>
+    <a href="https://www.linkedin.com/in/robin-van-der-heijden-545a21236/"
+      >linkedin</a
+    >
+  </div>
+</DraggableBox>
 
-  <DraggableBox
-    bind:ref={sectionRef}
-    element="section"
-    --color="#ff0000"
-    --width={`${Math.random() * 60 + 5}vw`}
-    --height={`${Math.random() * 60 + 5}vh`}
-    --align="start"
-  >
-    <h2>creative frontend developer</h2>
-  </DraggableBox>
+<DraggableBox
+  bind:ref={sectionRef}
+  element="section"
+  --color="#ff0000"
+  --width={`${Math.random() * 60 + 5}vw`}
+  --height={`${Math.random() * 60 + 5}vh`}
+  --align="start"
+>
+  <h2>creative frontend developer</h2>
+</DraggableBox>
 
-  <DraggableBox
-    bind:ref={projectsRef}
-    element="section"
-    --color="#ffff00"
-    --width={`${Math.random() * 60 + 5}vw`}
-    --height={`${Math.random() * 60 + 5}vh`}
-    --align="end"
-  >
-    <a href="/projects">projects</a>
-  </DraggableBox>
+<DraggableBox
+  bind:ref={projectsRef}
+  element="section"
+  --color="#ffff00"
+  --width={`${Math.random() * 60 + 5}vw`}
+  --height={`${Math.random() * 60 + 5}vh`}
+  --align="end"
+>
+  <a href="/projects">projects</a>
+</DraggableBox>
 
-  <DraggableBox
-    bind:ref={blogRef}
-    element="section"
-    --color="#00ff00"
-    --width={`${Math.random() * 60 + 5}vw`}
-    --height={`${Math.random() * 60 + 5}vh`}
-    --align="end"
-  >
-    <a href="/blog">blog</a>
-  </DraggableBox>
+<DraggableBox
+  bind:ref={blogRef}
+  element="section"
+  --color="#00ff00"
+  --width={`${Math.random() * 60 + 5}vw`}
+  --height={`${Math.random() * 60 + 5}vh`}
+  --align="end"
+>
+  <a href="/blog">blog</a>
+</DraggableBox>
 
 <style>
   h1,
@@ -95,6 +115,11 @@
     mix-blend-mode: difference;
     contain: none;
     background-color: #000000;
+  }
+
+  .bio-content {
+    display: flex;
+    flex-direction: column;
   }
 
   /* .fallback a,
