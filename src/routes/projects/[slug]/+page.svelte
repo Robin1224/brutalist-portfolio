@@ -3,20 +3,20 @@
   import { onNavigate } from "$app/navigation";
   import { utils, stagger } from "animejs";
   import Paragraph from "$lib/components/atoms/Paragraph.svelte";
-
-  let { data } = $props()
-  let item = data.items[0]
-
-  console.log(item.description.json.content[0].content[0].value);
-  console.log(item);
+  import { getContext } from "svelte";
+  
+  let { data } = $props();
+  let item = data.items[0];
+  
+  let readingModeActive = $derived(getContext("readingModeActive"));
 
   let windowRef;
   let backRef;
   let titleRef;
 
-  let refs = $state([])
+  let refs = $state([]);
 
-  const colours = ["#0000ff", "#00ff00", "#ff0000", "#ffff00"]
+  const colours = ["#0000ff", "#ffff00"];
 
   const animationSpeed = 70;
 
@@ -44,11 +44,11 @@
 
 <svelte:window bind:this={windowRef} />
 
-<div class="back-button" bind:this={refs[0]}>
+<div bind:this={refs[0]} class={["back-button", readingModeActive.value && "reading-mode"]}>
   <a href="/projects"> back to projects </a>
 </div>
 
-<div class="title" bind:this={refs[1]}>
+<div bind:this={refs[1]} class={["title", readingModeActive.value && "reading-mode"]}>
   <h1>{item.title}</h1>
 </div>
 
@@ -80,23 +80,8 @@
     mix-blend-mode: difference;
   }
 
-  h2 {
-    color: #ffffff;
-    mix-blend-mode: difference;
-  }
-
-  span {
-    display: inline;
-    width: fit-content;
-  }
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
   .back-button {
+    --color: var(--green);
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -109,6 +94,7 @@
   }
 
   .title {
+    --color: var(--red);
     height: fit-content;
     width: fit-content;
     position: absolute;
@@ -122,7 +108,20 @@
     font-size: 1rem;
   }
 
-  .highlight {
-    background-color: var(--red);
+  .reading-mode {
+    position: static !important;
+    max-width: 32rem !important;
+    width: calc(100% - 2rem) !important;
+    transform: none !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin: 1rem !important;
+    padding: 1rem !important;
+    border: 1px solid #000000 !important;
+    border-radius: 0 !important;
+    height: fit-content !important;
+    background-color: color(from var(--color) srgb r g b / 0.1) !important;
+    cursor: default !important;
+    font-family: "Inter", sans-serif !important;
   }
 </style>
