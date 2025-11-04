@@ -9,10 +9,14 @@
 </script>
 
 <div class={`background ${classList}`} style={`--colorBg: var(--${colorBg});`}>
+
+  <!-- Large arch -->
   <div
     class={`arch relative ${position}`}
     style={`--color: var(--${colorLarge});`}
   >
+
+  <!-- Optional small arch inside -->
     {#if (colorSmall)}
       <div
         class={`arch absolute ${position}`}
@@ -28,13 +32,14 @@
     --easing-function: cubic-bezier(0.66, 0.1, 0.34, 0.9);
   }
 
+  /* Large arch positions */
+
   .topleft {
     --gradient-position: 0% 0%;
     --gradient-angle: 90deg;
     border-radius: 0 0 100% 0;
     animation: animate-in-tl-br var(--animation-duration) var(--easing-function) forwards;
   }
-
 
   .topright {
     --gradient-position: 100% 0%;
@@ -57,38 +62,7 @@
     animation: animate-in-tl-br var(--animation-duration) var(--easing-function) forwards;
   }
 
-  div.background {
-    transition: --horizontal-position 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91);
-    animation: animate-in-horizontal var(--animation-duration) var(--easing-function) forwards;
-    --horizontal-position: 0%;
-    background: var(--colorBg);
-    background: linear-gradient(
-      0deg,
-      var(--black) 0%,
-      var(--black) var(--horizontal-position),
-      var(--colorBg) var(--horizontal-position),
-      var(--colorBg) 100%
-    );
-  }
-
-  div.arch {
-    /* transition: --gradient-angle 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91); */
-    background: var(--colorBg);
-    background-image: conic-gradient(
-      from var(--gradient-angle) at var(--gradient-position),
-      var(--color) 0deg,
-      var(--color) 90deg,
-      var(--colorBg) 90deg,
-      var(--colorBg) 180deg,
-      var(--color) 180deg,
-      var(--color) 270deg,
-      var(--colorBg) 270deg,
-      var(--colorBg) 360deg
-    );
-    width: 100%;
-    aspect-ratio: 1 / 1;
-  }
-
+  /* Small arch positions */
 
   div.absolute {
     width: 50%;
@@ -112,7 +86,48 @@
     right: 0;
     bottom: 0;
   }
-   /* In */
+
+  div.background {
+    --horizontal-position: 0%;
+
+    transition: --horizontal-position 0.5s cubic-bezier(0.85, 0.09, 0.15, 0.91);
+    animation: animate-in-horizontal var(--animation-duration) var(--easing-function) forwards;
+    
+    /* Linear gradient is required to animate the background in/out. */
+    background: var(--colorBg);
+    background: linear-gradient(
+      0deg,
+      var(--black) 0%,
+      var(--black) var(--horizontal-position),
+      var(--colorBg) var(--horizontal-position),
+      var(--colorBg) 100%
+    );
+  }
+
+  div.arch {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    
+    /* Create a conic gradient with 4 equal sections of color and colorBg. This lets us animate the arches in. */
+    background: var(--colorBg);
+    background-image: conic-gradient(
+      from var(--gradient-angle) at var(--gradient-position),
+      var(--color) 0deg,
+      var(--color) 90deg,
+      var(--colorBg) 90deg,
+      var(--colorBg) 180deg,
+      var(--color) 180deg,
+      var(--color) 270deg,
+      var(--colorBg) 270deg,
+      var(--colorBg) 360deg
+    );
+  }
+
+  div.arch.small {
+    width: 50%;
+  }
+
+   /* -- Animations -- */
 
   @keyframes animate-in-horizontal {
     0% {
@@ -126,6 +141,7 @@
     }
   }
 
+  /* Top left & bottom right */
   @keyframes animate-in-tl-br {
     0% {
       opacity: 0;
@@ -145,6 +161,7 @@
     }
   }
 
+  /* Top right & bottom left */
   @keyframes animate-in-tr-bl {
     0% {
       opacity: 0;
@@ -164,7 +181,7 @@
     }
   }
 
-  /* Out */
+  /* Out animations */
 
   @keyframes animate-out-horizontal {
     0% {
@@ -178,6 +195,7 @@
     }
   }
 
+  /* Top left & bottom right */
   @keyframes animate-out-tl-br {
     0% {
       opacity: 1;
@@ -197,6 +215,7 @@
     }
   }
 
+  /* Top right & bottom left */
   @keyframes animate-out-tr-bl {
     0% {
       opacity: 1;

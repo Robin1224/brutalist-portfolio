@@ -7,12 +7,18 @@
 <header class="tile-grid">
 
   <!-- 
+  Layout guide
+
+  d = desktop
+  t = tablet
+  m = mobile
+
+  d t m m t d d
+  d t m m t d d 
   d t m m t d d
   d t m m t d d
   d t m m t d d
   -->
-
-  <!-- <Title /> -->
 
   <!-- Row 1 -->
   <TileArch class="desktop" position="bottomleft" colorBg="red" colorLarge="black" />
