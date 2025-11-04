@@ -19,7 +19,7 @@
   <!-- Optional small arch inside -->
     {#if (colorSmall)}
       <div
-        class={`arch absolute ${position}`}
+        class={`arch absolute small ${position}`}
         style={`--color: var(--${colorSmall});`}
       ></div>
     {/if}
